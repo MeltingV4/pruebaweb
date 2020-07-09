@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private iab: InAppBrowser) { }
+
+  url() {
+
+    let options:InAppBrowserOptions={
+      //zoom:'no',
+      //footer:'yes',
+      //footercolor:'green',
+    }
+    this.iab.create('https://ionicframework.com/','_self',options);
+
+  }
 
 }
